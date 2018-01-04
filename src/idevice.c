@@ -29,7 +29,7 @@
 #include <string.h>
 #include <errno.h>
 
-#ifdef WIN32
+#ifdef DLL_EXPORT
 #include <windows.h>
 #endif
 
@@ -134,7 +134,7 @@ static void internal_idevice_deinit(void)
 static thread_once_t init_once = THREAD_ONCE_INIT;
 static thread_once_t deinit_once = THREAD_ONCE_INIT;
 
-#ifdef WIN32
+#ifdef DLL_EXPORT
 BOOL WINAPI DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 {
 	switch (dwReason) {
